@@ -44,16 +44,16 @@ class NovinWebService
         }
         
         //handle error
-        if (Validate::isInt($result) AND strlen($result) == 3 ) 
+        if (Validate::isInt($result->Status) AND ($result->Status) < 0 ) 
         {
-            $error = $this->handleError((int) $result);
+            $error = $this->handleError((int) $result->Status);
             
             $this->module->saveLogs($status, $error);
             return $error;
         } 
         else
         {
-            $this->module->saveLogs($status, $result);
+            $this->module->saveLogs($status, $result->Status);
             return 'sent';
             
         }
