@@ -32,7 +32,7 @@ class NovinWebService
             
             $result = $this->sms->Send(array(
 				'Auth' => array('number' => $this->username,'pass' => $this->password),
-				'Recipients' => $phonenumber,
+				'Recipients' => array($phonenumber),
 				'Message' => array($text),
 				'Flash' => 0
 			));
